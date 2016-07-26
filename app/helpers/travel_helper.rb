@@ -1,7 +1,7 @@
 module TravelHelper
 
-	def get_trains_to_travel(stations_res)
-		output = []
+  def get_trains_to_travel(stations_res)
+    output = []
 
     stations_res.each do |station_name|
       included = false
@@ -21,5 +21,5 @@ module TravelHelper
       end
     end
     return output.uniq
-	end
+  end
 end
