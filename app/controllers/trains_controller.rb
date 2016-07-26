@@ -1,11 +1,11 @@
 class TrainsController < ApplicationController
 
-	def new
-		@train = Train.new
-		@trains = Train.all
-	end
+  def new
+    @train = Train.new
+    @trains = Train.all
+  end
 
-	# POST /trains
+  # POST /trains
   # POST /trains.json
   def create
     @train = Train.new(params[:train])
@@ -22,6 +22,6 @@ class TrainsController < ApplicationController
   end
 
   def create_train_visiting_stations
-  	TrainVisitingStation
+    TrainVisitingStation
   end
 end
