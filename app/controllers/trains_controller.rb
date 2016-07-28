@@ -9,7 +9,7 @@ class TrainsController < ApplicationController
   # POST /trains.json
   def create
     @train = Train.new(params[:train])
-
+    @trains = Train.all
     respond_to do |format|
       if @train.save
         format.html { redirect_to new_train_path, notice: 'Train was successfully created.' }

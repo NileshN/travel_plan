@@ -1,4 +1,6 @@
 class TrainVisitingStationsController < ApplicationController
+
+  before_filter :get_data, :only => ["new", "create", "update"]
   # GET /train_visiting_stations
   # GET /train_visiting_stations.json
   def index
@@ -25,8 +27,7 @@ class TrainVisitingStationsController < ApplicationController
   # GET /train_visiting_stations/new.json
   def new
     @train_visiting_station = TrainVisitingStation.new
-    @stations = Station.all
-    @trains = Train.all
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @train_visiting_station }
@@ -94,5 +95,10 @@ class TrainVisitingStationsController < ApplicationController
       @train_visiting_station.departure_days = nil
       @train_visiting_station.departure_time = nil
     end
+  end
+
+  def get_data
+    @stations = Station.all
+    @trains = Train.all
   end
 end
